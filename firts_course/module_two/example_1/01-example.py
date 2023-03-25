@@ -19,14 +19,14 @@ for i in range(len(velocidades)-1):
     aceleraciones.append(aceleracion) # Va agregando aceleracion calculada al vector aceleraciones
 
 # Guarda los resultados a un write txt
-with open("salida.txt", "w") as outfile: # Prepara mediante write la creacion de un write de extension txt
-    outfile.write("Tiempo\tPosicion\tVelocidad\tAceleracion\n") # Este es el encabezado de mi write txt
+with open("salida.txt", "w") as archivo: # Prepara mediante write la creacion de un write de extension txt
+    archivo.write("Tiempo\tPosicion\tVelocidad\tAceleracion\n") # Este es el encabezado de mi write txt
     for i in range(len(posiciones)): # Este bucle depende del numero de valores del vector posicion
-        outfile.write(f"{tiempos[i]}\t{posiciones[i]}\t") # Esta linea imprime en el write los tiempos (ubicados en el vector tiempos) y las posiciones (ubicadas en el vector posiciones)
+        archivo.write(f"{tiempos[i]}\t{posiciones[i]}\t") # Esta linea imprime en el write los tiempos (ubicados en el vector tiempos) y las posiciones (ubicadas en el vector posiciones)
         if i < len(velocidades): # Esta estructura de control va guardando las velocidades obtenidas en el vector velocidades, en el write txt
-            outfile.write(f"{velocidades[i]}\t") # Almacena las velocidade al write
+            archivo.write(f"{velocidades[i]}\t") # Almacena las velocidade al write
         else:
-            outfile.write("\t") # cuando no encuentra velocidades, pasa a guardar las aceleraciones
+            archivo.write("\t") # cuando no encuentra velocidades, pasa a guardar las aceleraciones
         if i < len(aceleraciones): # Esta estructura de control va guardando las aceleraciones obtenidas en el vector aceleraciones, en el write txt
-            outfile.write(f"{aceleraciones[i]}") # Guarda todas la aceleraciones calculadas en el write
-        outfile.write("\n") # Instruccion que indica fin de la linea
+            archivo.write(f"{aceleraciones[i]}") # Guarda todas la aceleraciones calculadas en el write
+        archivo.write("\n") # Instruccion que indica fin de la linea
