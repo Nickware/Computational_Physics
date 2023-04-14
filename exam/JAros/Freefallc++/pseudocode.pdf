@@ -1,0 +1,20 @@
+1. Inicio
+2. Inicializar las variables g, h, t, y y v
+3. Inicializar la variable t_1
+4. Solicitar al usuario que le asigne valor a las variables del punto 2.
+5. ¿t_1>t?
+6. Si en el punto 5 si se cumple la condicion se continua con el proceso, de lo contrario se regresa al punto 3.
+7. Inicializar la variable n_pasos
+8. Leer los varoles.
+9. Crear un archivo.txt donde se almacenen las variables t, y , v y g
+10. Se guardan las variables del punto 5 << t << " " << y << " " << v << " " << g << endl
+11. Se itera dependiendo del tiempo maximo t_1 y el tamaño de paso (variable n_pasos) que desee ver el usuario (evolucion del sistema de estudio)
+12. Se aplica el metodo de Euler y se itera para t, y y v
+13. Se almacenan los nuevos datos de t, y, y v en el archivo.txt
+14. Cerrar archivo.txt
+15. Crear un archivo gnuplot
+16. Ordenes de graficacion
+17. Cerrar archivo gnuplot
+18. Ejecutar archivo gnuplot
+19. Graficar
+20. Fin
