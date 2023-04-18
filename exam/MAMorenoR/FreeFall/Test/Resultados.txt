@@ -1,0 +1,4 @@
+Los resutados con 
+tf = 10s 
+dt =0.1
+y0=0
