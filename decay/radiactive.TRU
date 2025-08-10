@@ -1,0 +1,10 @@
+! Simulation of radioactive decay
+! N. Giordano 10-1-94
+program decay
+    option nolet                            ! can omit the *let* keyword
+    library "sgfun*", "sglib*"              ! the graphics routines are found here
+    dim n_uranium(100), t(1000)             ! declare the arrays we will need
+    call initializate(n_uranium,t,tau,dt)   ! use subroutine to do the work
+    call calculate(n_uranium,t,tau,dt)
+    call display(n_uranium,t,tau,dt)
+end
