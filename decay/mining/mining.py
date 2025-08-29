@@ -17,6 +17,7 @@ print(f"V0: {V0_ajustado:.2f}, λ: {lambda_ajustado:.4f} (tasa de agotamiento)")
 # Gráfico
 plt.scatter(años, agua, label="Datos observados")
 plt.plot(años, modelo_exponencial(años, *params), 'r-', label="Ajuste exponencial")
+plt.title("Disminución exponencial de agua potable por actividad minera")
 plt.xlabel("Años de actividad minera")
 plt.ylabel("Volumen de agua disponible")
 plt.legend()
