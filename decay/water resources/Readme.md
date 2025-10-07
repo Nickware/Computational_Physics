@@ -1,6 +1,6 @@
 ### **Modelo de Decaimiento de Recursos Hídricos en el Páramo de Santurbán (Catatumbo, Colombia): Incorporación de Variables Socioeconómicas y Políticas**  
 
-El **Páramo de Santurbán** es un ecosistema crítico para la provisión de agua en Colombia, amenazado por la **minería de oro** (ej: proyectos como Soto Norte). Aquí adaptamos el modelo exponencial de decaimiento para incluir:  
+El **Páramo de Santurbán** es un ecosistema crítico para la provisión de agua en Colombia, amenazado por la **minería de oro** (Proyecto Soto Norte). Aquí se adapta el modelo exponencial de decaimiento para incluir:  
 1. **Extracción minera** (presión directa).  
 2. **Variables socioeconómicas** (pobreza, dependencia de la minería).  
 3. **Políticas públicas** (regulación ambiental, conflictos territoriales).  
@@ -72,8 +72,6 @@ python loss_argentina.py
 
 ### **Conclusión**  
 El modelo muestra cómo la **sinergia entre minería, debilidad institucional y demanda local** acelera el decaimiento hídrico. Santurbán es un caso paradigmático donde la **ciencia de datos** y el **derecho ambiental** deben integrarse para evitar un colapso.  
-
-**¿Quieres ajustar el modelo con datos exactos de concesiones mineras o incluir el rol de las comunidades indígenas (ej: Yukpa) en la protección del agua?**  
 
 ##### **Fuentes clave**:  
 - [Corte Constitucional de Colombia (2018)](https://www.corteconstitucional.gov.co).  
