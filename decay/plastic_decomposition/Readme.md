@@ -15,31 +15,31 @@
 
 ### **Ecuación Base Adaptada**
 \[
-M(t) = M_0 \cdot e^{-(\lambda_{\text{env}} + \lambda_{\text{bio}} + \lambda_{\text{hum}}) \cdot t}
+$M(t) = M_0 \cdot e^{-(\lambda_{\text{env}} + \lambda_{\text{bio}} + \lambda_{\text{hum}}) \cdot t}$
 \]
 
 Donde:
-- **\( M(t) \)**: Masa de plástico remanente en el tiempo \( t \)
-- **\( M_0 \)**: Masa inicial de plástico
-- **\( \lambda_{\text{env}} \)**: Tasa de degradación ambiental (clima, UV)
-- **\( \lambda_{\text{bio}} \)**: Tasa de biodegradación (microorganismos)
-- **\( \lambda_{\text{hum}} \)**: Tasa de intervención humana (reciclaje, limpieza)
+- **\$( M(t) \)$**: Masa de plástico remanente en el tiempo \( t \)
+- **\$( M_0 \)$**: Masa inicial de plástico
+- **$\( \lambda_{\text{env}} \)$**: Tasa de degradación ambiental (clima, UV)
+- **\$( \lambda_{\text{bio}} \)$**: Tasa de biodegradación (microorganismos)
+- **\$( \lambda_{\text{hum}} \)$**: Tasa de intervención humana (reciclaje, limpieza)
 
 ---
 
 ## **3. Parámetros Específicos para Bogotá**
 
 ### **A. Condiciones Ambientales Únicas**
-| **Factor**               | **Valor en Bogotá**                  | **Impacto en \( \lambda \)**                           |
+| **Factor**               | **Valor en Bogotá**                  | **Impacto en $\( \lambda \)$**                           |
 | ------------------------ | ------------------------------------ | ------------------------------------------------------ |
-| **Altitud (2,640 msnm)** | Mayor radiación UV                   | \( \lambda_{\text{env}} \uparrow \) 20%                |
-| **Temperatura promedio** | 14°C                                 | \( \lambda_{\text{bio}} \downarrow \) 40% vs nivel mar |
-| **Precipitación anual**  | 800-1,000 mm                         | \( \lambda_{\text{bio}} \uparrow \) en épocas lluvia   |
-| **Contaminación aire**   | Material particulado cubre plásticos | \( \lambda_{\text{env}} \downarrow \) 15%              |
+| **Altitud (2,640 msnm)** | Mayor radiación UV                   | $\( \lambda_{\text{env}} \uparrow \)$ 20%                |
+| **Temperatura promedio** | 14°C                                 | $\( \lambda_{\text{bio}} \downarrow \)$ 40% vs nivel mar |
+| **Precipitación anual**  | 800-1,000 mm                         | $\( \lambda_{\text{bio}} \uparrow \)$ en épocas lluvia   |
+| **Contaminación aire**   | Material particulado cubre plásticos | $\( \lambda_{\text{env}} \downarrow \)$ 15%              |
 
 ### **B. Tasas de Degradación por Tipo de Plástico**
 ```python
-# Tasas anuales de degradación (λ) para Bogotá - Basado en estudios locales
+# Tasas anuales de degradación $(λ)$ para Bogotá - Basado en estudios locales
 tasas_degradacion = {
     'PET': 0.0012,    # Botellas: 500+ años vida media
     'PEAD': 0.0008,   # Envases: 700+ años  
@@ -52,17 +52,17 @@ tasas_degradacion = {
 
 ---
 
-## **4. Variables de Intervención Humana (\( \lambda_{\text{hum}} \))**
+## **4. Variables de Intervención Humana $\( \lambda_{\text{hum}} \)$**
 
 ### **Componentes Cuantificables**
 \[
-\lambda_{\text{hum}} = \alpha R + \beta C + \gamma E
+$\lambda_{\text{hum}} = \alpha R + \beta C + \gamma E$
 \]
 
-- **\( R \)**: Tasa de reciclaje efectivo (0.11 actual)
-- **\( C \)**: Efectividad programas de recolección (0.3 estimado)
-- **\( E \)**: Educación ambiental (0.1 estimado)
-- **\( \alpha, \beta, \gamma \)**: Pesos de cada factor
+- **$\( R \)$**: Tasa de reciclaje efectivo (0.11 actual)
+- **$\( C \)$**: Efectividad programas de recolección (0.3 estimado)
+- **$\( E \)$**: Educación ambiental (0.1 estimado)
+- **$\( \alpha, \beta, \gamma \)$**: Pesos de cada factor
 
 ---
 
@@ -154,7 +154,7 @@ def modelo_complejo(M0, t, lambda_degrad, lambda_fragment):
 
 ## **9. Recomendaciones para Bogotá**
 
-### **Acciones para Aumentar \( \lambda_{\text{hum}} \)**:
+### **Acciones para Aumentar $\( \lambda_{\text{hum}} \)$**:
 1. **Incrementar reciclaje** al 50% para 2030
 2. **Promover plásticos biodegradables** en sectores críticos
 3. **Implementar tecnologías** de biodegradación acelerada
