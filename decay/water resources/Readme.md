@@ -8,29 +8,29 @@ El **Páramo de Santurbán** es un ecosistema crítico para la provisión de agu
 ---
 
 ### **1. Hipótesis del Modelo**  
-**"La disponibilidad hídrica (\( V(t) \)) disminuye exponencialmente en función de la actividad minera (\( M(t) \)), agravada por la debilidad institucional (\( I(t) \)) y la demanda local (\( D(t) \))"**:  
-\[
+**"La disponibilidad hídrica ($\( V(t) \)$) disminuye exponencialmente en función de la actividad minera ($\( M(t) \$)), agravada por la debilidad institucional ($\( I(t) \$)) y la demanda local ($\( D(t) \$))"**:  
+$\[
 V(t) = V_0 \cdot e^{-\lambda(t) \cdot t}, \quad \text{donde } \lambda(t) = \alpha M(t) + \beta I(t) + \gamma D(t).
-\]
-- **\( \alpha, \beta, \gamma \)**: Pesos estimados empíricamente.  
-- **\( M(t) \)**: Hectáreas concesionadas a minería (datos de la ANM).  
-- **\( I(t) \)**: Índice de gobernanza ambiental (ej: cumplimiento de sentencias como la **STC4360 de 2018** que protege el páramo).  
-- **\( D(t) \)** : Crecimiento poblacional + demanda agrícola (ej: datos del DANE).  
+\$]
+- **$\( \alpha, \beta, \gamma \$)**: Pesos estimados empíricamente.  
+- **$\( M(t) \$)**: Hectáreas concesionadas a minería (datos de la ANM).  
+- **$\( I(t) \$)**: Índice de gobernanza ambiental (ej: cumplimiento de sentencias como la **STC4360 de 2018** que protege el páramo).  
+- **$\( D(t) \$)** : Crecimiento poblacional + demanda agrícola (ej: datos del DANE).  
 
 ---
 
 ### **2. Evidencia que Ajusta al Modelo**  
-#### **A. Presión Minera (\( M(t) \))**  
+#### **A. Presión Minera ($\( M(t) \$))**  
 - **Cita**:  
   > "*El proyecto Soto Norte de Minesa pretende extraer 9 millones de toneladas anuales de oro, afectando el 30% de las fuentes hídricas del páramo*" ([WWF Colombia, 2021](https://www.wwf.org.co)).  
 - **Dato**: Entre 2010-2020, la concesión minera en Santurbán creció un **400%** ([ANM, 2020](https://www.anm.gov.co)).  
 
-#### **B. Debilidad Institucional (\( I(t) \))**  
+#### **B. Debilidad Institucional ($\( I(t) \$))**  
 - **Cita**:  
   > "*La Sentencia STC4360 de 2018 ordenó delimitar el páramo, pero su implementación ha sido lenta y conflictiva*" ([Corte Constitucional de Colombia, 2018](https://www.corteconstitucional.gov.co)).  
 - **Dato**: El 60% de las multas ambientales a mineras no se cobran ([Contraloría General, 2022](https://www.contraloria.gov.co)).  
 
-#### **C. Demanda Local (\( D(t) \))**  
+#### **C. Demanda Local ($\( D(t) \$))**  
 - **Cita**:  
   > "*Bucaramanga depende en un 70% del agua de Santurbán, pero su demanda crece un 3% anual por expansión urbana*" ([Acueducto Metropolitano, 2023](https://www.acueducto.com.co)).  
 - **Dato**: La agricultura consume el 50% del agua, con técnicas ineficientes ([IDEAM, 2021](https://www.ideam.gov.co)).  
@@ -39,11 +39,11 @@ V(t) = V_0 \cdot e^{-\lambda(t) \cdot t}, \quad \text{donde } \lambda(t) = \alph
 
 ### **3. Simulación con Datos Reales**  
 #### **Parámetros Estimados (ejemplo)**  
-| Variable                    | Valor (\( \lambda \))                       | Fuente                            |
+| Variable                    | Valor ($\( \lambda \$))                       | Fuente                            |
 | --------------------------- | ------------------------------------------- | --------------------------------- |
-| Minería (\( \alpha \))      | 0.05 por cada 100 ha concesionadas          | [ANM, 2023]                       |
-| Instituciones (\( \beta \)) | 0.03 (si \( I(t) < 0.5 \))                  | Índice de Transparencia Ambiental |
-| Demanda (\( \gamma \))      | 0.02 por cada 1% de crecimiento poblacional | [DANE, 2022]                      |
+| Minería ($\( \alpha \$))      | 0.05 por cada 100 ha concesionadas          | [ANM, 2023]                       |
+| Instituciones ($\( \beta \$)) | 0.03 (si $\( I(t) < 0.5 \$))                  | Índice de Transparencia Ambiental |
+| Demanda ($\( \gamma \$))      | 0.02 por cada 1% de crecimiento poblacional | [DANE, 2022]                      |
 
 **Resultado**:  
 
@@ -57,8 +57,8 @@ python loss_argentina.py
 ---
 
 ### **4. Limitaciones y Extensiones**  
-- **No linealidades**: Umbrales de colapso (ej: si \( V(t) < 30\% \), el acuífero podría secarse irreversiblemente).  
-- **Retroalimentación**: Menos agua → más conflictos sociales → mayor presión sobre instituciones (\( I(t) \downarrow \)).  
+- **No linealidades**: Umbrales de colapso (ej: si $\( V(t) < 30\% \$), el acuífero podría secarse irreversiblemente).  
+- **Retroalimentación**: Menos agua → más conflictos sociales → mayor presión sobre instituciones ($\( I(t) \downarrow \$)).  
 - **Variables omitidas**: Cambio climático (sequías más frecuentes).  
 
 ---
@@ -66,7 +66,7 @@ python loss_argentina.py
 ### **5. Recomendaciones de Política Pública**  
 1. **Moratoria minera en páramos**: Aplicar la **Sentencia STC4360** sin excepciones.  
 2. **Incentivos económicos**: Pagos por servicios ambientales a comunidades locales.  
-3. **Tecnificación agrícola**: Reducir \( \gamma \) con riego eficiente.  
+3. **Tecnificación agrícola**: Reducir $\( \gamma \$) con riego eficiente.  
 
 ---
 
