@@ -27,19 +27,15 @@
 El **decaimiento exponencial** puede adaptarse para representar la **pérdida de valor de los activos** en este entorno:  
 
 #### **Fórmula Ajustada**  
-\[
-V(t) = V_0 \cdot e^{-(\lambda_{\text{econ}} + \lambda_{\text{pol}} + \lambda_{\text{reg}}) \cdot t},
-\]
+$\[V(t) = V_0 \cdot e^{-(\lambda_{\text{econ}} + \lambda_{\text{pol}} + \lambda_{\text{reg}}) \cdot t},\$]
 donde:  
-- \( \lambda_{\text{econ}} \): Tasa de deterioro por inflación y recesión.  
-- \( \lambda_{\text{pol}} \): Incremento por inestabilidad política (ej: elecciones, protestas).  
-- \( \lambda_{\text{reg}} \): Riesgo regulatorio (ej: impuestos a exportaciones, controles de precios).  
+- $\( \lambda_{\text{econ}} \$): Tasa de deterioro por inflación y recesión.  
+- $\( \lambda_{\text{pol}} \$): Incremento por inestabilidad política (ej: elecciones, protestas).  
+- $\( \lambda_{\text{reg}} \$): Riesgo regulatorio (ej: impuestos a exportaciones, controles de precios).  
 
 **Ejemplo**:  
-- Si un proyecto de energía renovable tiene \( V_0 = \$100M \) y \( \lambda_{\text{total}} = 0.2 \) (20% de pérdida anual por riesgos combinados), en 3 años valdrá:  
-  \[
-  V(3) = 100 \cdot e^{-0.2 \times 3} \approx \$54.9M.
-  \]
+- Si un proyecto de energía renovable tiene $\( V_0 = \$100M \$) y \$( \lambda_{\text{total}} = 0.2 \$) (20% de pérdida anual por riesgos combinados), en 3 años valdrá:  
+  $\[V(3) = 100 \cdot e^{-0.2 \times 3} \approx \$54.9M.\$]
 
 ---
 
@@ -80,7 +76,7 @@ python loss_argentina.py
 A pesar de todo, algunos inversores asumen riesgos por:  
 - **Recursos naturales**: Litio en Salta, shale oil en Vaca Muerta.  
 - **Mano de obra calificada**: Sector IT competitivo.  
-- **Activios baratos**: Compra de empresas en quiebra a precios de remate.  
+- **Activos baratos**: Compra de empresas en quiebra a precios de remate.  
 
 ---
 
