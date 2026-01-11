@@ -6,8 +6,8 @@ El decaimiento radiactivo (o desintegración nuclear) es un proceso físico medi
 
 - **Decaimiento Alfa (α)**
   - El núcleo emite una partícula alfa (2 protones + 2 neutrones, equivalente a un núcleo de helio-4).
-  - Ejemplo (típico en núcleos pesados como uranio o plutonio):
-    $\^{238}_{92}\text{U} \to \text{núcleo~hijo} + \alpha\$
+  - Ejemplo (típico en núcleos pesados como uranio $\^{238}$ o plutonio $\^{92}$):
+    $\text{U}$ $\to$ $\text{núcleo~hijo}$ $+$ $\alpha\$
 
 - **Decaimiento Beta (β)**
   - Un neutrón se convierte en un protón (o viceversa), emitiendo un electrón (β⁻) o un positrón (β⁺), junto con un antineutrino o neutrino.
