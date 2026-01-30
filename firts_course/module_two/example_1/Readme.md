@@ -51,7 +51,7 @@ El programa genera un archivo llamado `salida.txt` con las siguientes columnas:
 ### Ejemplo de salida (`salida.txt`)
 
 ```
-Tiempo  Posicion  Velocidad  Aceleracion
+Tiempo Posición Velocidad Aceleración
 0.0     0         v0         a0
 0.5     0.61      v1         a1
 1.0     0.18      v2         a2
@@ -63,27 +63,27 @@ Donde `v0`, `a0`, etc., son los valores calculados por el programa.
 
 ### Uso
 
-1. **Prepara el archivo de datos** con el formato mostrado arriba y guárdalo como `datos.txt` en el mismo directorio que el ejecutable.
+1. **Preparar el archivo de datos** con el formato mostrado arriba y guárdalo como `datos.txt` en el mismo directorio que el ejecutable.
 2. **Compilar el programa:**
 
 ```bash
 g++ -o diferencias diferencias.cpp
 ```
 
-3. **Ejecuta el programa:**
+3. **Ejecutar el programa:**
 
 ```bash
 ./diferencias
 ```
 
-4. **Revisa el archivo de resultados:**
-Abre `salida.txt` para ver la tabla de resultados.
+4. **Revisar el archivo de resultados:**
+Abrir `salida.txt` para ver la tabla de resultados.
 
 ### Personalización
 
-- Puede usar cualquier archivo de entrada que siga el formato de dos columnas con encabezado.
+- Se puede usar cualquier archivo de entrada que siga el formato de dos columnas con encabezado.
 - El programa valida automáticamente que los datos sean suficientes y consistentes.
-- Si lo desea, puede modificar el nombre del archivo de entrada en el código fuente.
+- Si desea, puede modificar el nombre del archivo de entrada en el código fuente.
 
 
 ### Requisitos
