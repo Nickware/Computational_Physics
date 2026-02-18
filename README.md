@@ -64,8 +64,6 @@ Upon completion, students will:
 
 This course leverages computation to make physical concepts tangible and equips students for advanced careers or research in physics and related disciplines[^1][^3].
 
-<div style="text-align: center">⁂</div>
-
 [^1]: https://www.mathworks.com/academia/books/computational-physics-giordano.html
 
 [^3]: https://class-descriptions.northwestern.edu/4930/WCAS/PHYSICS/28874
