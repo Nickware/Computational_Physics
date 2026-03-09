@@ -35,10 +35,10 @@ velocidad[i] = (posiciones[i+1] - posiciones[i]) / (tiempos[i+1] - tiempos[i])
 ```
 
 3. **Cálculo de aceleraciones:**
-Se aplica el mismo método sobre las velocidades:
+Se aplica el mismo método a las velocidades:
 
 ```
-aceleracion[i] = (velocidades[i+1] - velocidades[i]) / (tiempos[i+2] - tiempos[i])
+aceleración[i] = (velocidades[i+1] - velocidades[i]) / (tiempos[i+2] - tiempos[i])
 ```
 
 4. **Salida de resultados:**
@@ -89,5 +89,3 @@ Abrir `salida.txt` para ver la tabla de resultados.
 ### Requisitos
 
 - Compilador de C++ compatible (por ejemplo, g++).
-
----
