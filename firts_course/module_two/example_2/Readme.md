@@ -6,7 +6,7 @@ Esta simulación en C++ procesa datos experimentales de una partícula en movimi
 
 ### 1. Lectura de datos
 
-- Abrir el archivo `datos.txt` y lee pares de valores: **tiempo** y **posición**.
+- Abrir el archivo `datos.txt` y leer pares de valores: **tiempo** y **posición**.
 - Los valores se almacenan en dos vectores: `tiempos` y `posiciones`.
 
 
@@ -66,14 +66,14 @@ $$
 
 ## Usos típicos
 
-- Útil en **física experimental** o laboratorios de una partícula en movimiento rectilíneo.
-- Facilita un procesamiento y análisis automatizado de resultados.
+- Útil en **física experimental** o en laboratorios de una partícula en movimiento rectilíneo.
+- Facilita un procesamiento y análisis automatizados de resultados.
 - Permite visualización rápida y reducción de errores manuales.
 
 
 ## Oportunidades de mejora
 
-- El cálculo de aceleración supone intervalos de tiempo uniformes o suficientemente pequeños.
+- El cálculo de la aceleración supone intervalos de tiempo uniformes o suficientemente pequeños.
 - El programa no maneja excepciones para datos corruptos o incompletos.
 - Es necesario tener **Gnuplot instalado** en el sistema para la generación de gráficas.
 
