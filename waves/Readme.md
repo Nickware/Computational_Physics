@@ -66,7 +66,7 @@ $\[
 D = \tfrac{1}{2}\,\rho\,V^2\,C_D\,A
 \]$
 
-Usando los valores anteriores se obtiene aproximadamente:
+Usando los valores anteriores, se obtiene aproximadamente:
 
 - Sustentación: $\(L \approx 1{,}4\ \text{N}\)$.  
 - Arrastre: $\(D \approx 0{,}53\ \text{N}\)$.  
@@ -106,14 +106,14 @@ En la práctica, turbulencias, peso real del hilo, flexibilidad de la cometa y p
 
 ## Cómo ajustar el modelo a condiciones reales
 
-Para hacerlo más cercano a una cometa específica en Bogotá podrías:
+Para hacerlo más cercano a una cometa específica en Bogotá, podrías:
 
 - Medir masa real de la cometa y del hilo por metro.  
 - Estimar área proyectada real (según forma y curvatura).  
 - Medir con un anemómetro simple la velocidad del viento en agosto en tu sitio de vuelo.  
 - Ajustar $\(C_L\)$ y $\(C_D\)$ según la forma (rombo, delta, cometas tipo foil), usando rangos de literatura.[7][3]
 
-Si quieres, se puede refinar el modelo con un diagrama de fuerzas completo y resolver explícitamente el ángulo de equilibrio y la tensión para un caso que te interese (por ejemplo, Delta de 1 m de envergadura volando en Ciudad Bolívar con vientos fuertes de agosto).
+Si se desea, se puede refinar el modelo con un diagrama de fuerzas completo y resolver explícitamente el ángulo de equilibrio y la tensión para un caso que te interese (por ejemplo, Delta de 1 m de envergadura volando en Ciudad Bolívar con vientos fuertes de agosto).
 
 [1](https://ogabogota.unal.edu.co/vientos/)
 [2](https://repositorio.uniandes.edu.co/bitstreams/16889422-24b9-4034-833d-2a68ec10f20c/download)
