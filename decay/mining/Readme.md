@@ -1,6 +1,6 @@
 # Decrecimiento Exponencial de los Recursos Hídricos por Minería
 
-La **disponibilidad de agua** en comunidades cercanas a operaciones mineras puede disminuir de forma **exponencial** o explicarse mediante otros modelos. En general el fenómeno presenta varias complejidades. A continuación se describe cómo se podría modelarse mediante el modelo **exponencial** y cuáles factores lo alteran.
+La **disponibilidad de agua** en comunidades cercanas a operaciones mineras puede disminuir de forma **exponencial** o explicarse mediante otros modelos. En general, el fenómeno presenta varias complejidades. A continuación se describe cómo se podría modelarse mediante el modelo **exponencial** y cuáles factores lo alteran.
 
 ## 1. Analogía: Modelo Exponencial
 
@@ -15,7 +15,7 @@ $V(t) = V_0 e^{-\lambda t}$
 
 Ejemplo: Si una minera reduce un 10% el agua disponible por año, $\lambda \approx 0.1\,\text{año}^{-1}$.
 
-## 2. Factores que Afectan la Dinámica
+## 2. Factores que afectan la dinámica
 
 El modelo puro es una **simplificación**; influyen:
 
@@ -53,6 +53,4 @@ Para mayor precisión, se emplean:
 - **Ajuste de curvas**: Usar regresión no lineal (Python o R) para verificar el ajuste exponencial.
 - **Validación**: Utilizar modelos hidrológicos, como MODFLOW (USGS), para simular flujos subterráneos afectados por minería.
 
----
-
-La modelización matemática ayuda a entender y prever el **impacto complejo y acelerado** de la minería sobre los recursos hídricos, facilitando estrategias de gestión y protección ambiental.
+La modelización matemática ayuda a entender y prever el impacto complejo y acelerado de la minería sobre los recursos hídricos, facilitando estrategias de gestión y protección ambiental.
