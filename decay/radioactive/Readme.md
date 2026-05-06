@@ -20,8 +20,12 @@ El decaimiento radiactivo (o desintegración nuclear) es un proceso físico medi
 - **Decaimiento Gamma (γ)**
   - Un núcleo excitado libera fotones gamma de alta energía, sin alterar su número de protones o neutrones.
   - Ejemplo:
-    $^{60}_{27}\text{Co}^* \to ^{60}_{27}\text{Co} + \gamma$
-  - Suele ocurrir tras una desintegración α o β que deja al núcleo en estado excitado.
+    ${}^{60}_{27}\mathrm{Co}^{}$ 
+  -
+    $\rightarrow{}^{60}_{27}$
+  -
+    $\mathrm{Co}+\gamma$
+  - Suele ocurrir tras una desintegración $\gamma$ o $\beta$  que deja al núcleo en estado excitado.
 
 - **Otros tipos:**
   - **Emisión de neutrones:** núcleos muy inestables liberan neutrones libres.
@@ -47,4 +51,4 @@ $t_{1/2} = \frac{\ln(2)}{\lambda}$
 
 ## Riesgos
 
-La radiación ionizante (α, β, γ) puede dañar tejidos y ADN, provocando mutaciones o enfermedades como el cáncer. Su manipulación requiere blindajes adecuados (plomo para γ, plástico para β) y estrictos protocolos de seguridad.
+La radiación ionizante ($\alpha, \beta, \gamma$) puede dañar tejidos y ADN, provocando mutaciones o enfermedades como el cáncer. Su manipulación requiere blindajes adecuados (plomo para $\gamma$, plástico para $\beta$) y estrictos protocolos de seguridad.
