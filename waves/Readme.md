@@ -22,7 +22,7 @@ Cuando estas tres fuerzas se equilibran vectorialmente, la cometa queda en una p
 
 El ángulo de ataque es el ángulo entre el viento y el plano de la cometa, y es clave para generar la cantidad adecuada de sustentación sin perder estabilidad. Si el ángulo es muy grande, la cometa ofrece mucha área al viento, aumenta la sustentación, pero también el arrastre y la tendencia a entrar en pérdida o a caer de manera caótica.[7][4][6]
 
-- Para cada velocidad de viento existe un rango de ángulos en el que la cometa genera suficiente sustentación para equilibrar peso y tensión de la cuerda, manteniendo un vuelo estable.[4][6]
+- Para cada velocidad del viento existe un rango de ángulos en el que la cometa genera suficiente sustentación para equilibrar el peso y la tensión de la cuerda, manteniendo un vuelo estable.[4][6]
 - La distribución del centro de presiones respecto al centro de gravedad determina si la cometa tiende a estabilizarse o a voltearse, por eso se usan colas y diseños asimétricos que actúan como quillas estabilizadoras.[8][7][6]
 
 ## Equilibrio estático y estabilidad dinámica
@@ -51,8 +51,8 @@ Tomemos como ejemplo una cometa plana de un hilo, de las que suelen usarse en la
 - Masa de la estructura y el papel/tela: $\(m \approx 0{,}20\ \text{kg}\)$.  
 - Masa equivalente del hilo elevado: $\(\approx 0{,}05\ \text{kg}\)$ (según longitud en el aire).  
 - Densidad del aire en Bogotá (2600 m): $\(\rho \approx 0{,}89\ \text{kg/m}^3\)$.[2]
-- Viento “suave” en un parque de Bogotá: tomemos $\(V \approx 8\ \text{km/h} \approx 2{,}2\ \text{m/s}\)$, dentro del rango típico urbano aunque puede ser mayor en agosto.[5][6][1]
-- Coeficientes aerodinámicos típicos de cometa plana: $\(C_L \approx 0{,}8\)$, \(C_D \approx 0{,}3\).[7][3]
+- Viento “suave” en un parque de Bogotá: tomemos $V \approx 8\ \text{km/h} \approx 2{,}2\ \text{m/s}$, dentro del rango típico urbano, aunque puede ser mayor en agosto.[5][6][1]
+- Coeficientes aerodinámicos típicos de cometa plana: $\(C_L \approx 0{,}8\)$, $\(C_D \approx 0{,}3\)$.[7][3]
 
 El peso total efectivo es entonces $\(W = (m + m_h)\,g \approx 0{,}25 \times 9{,}81 \approx 2{,}45\ \text{N}\)$.[4]
 
@@ -74,7 +74,7 @@ Usando los valores anteriores, se obtiene aproximadamente:
 
 En estas condiciones de viento suave, la sustentación $\(L\)$ es menor que el peso $\(W\)$, así que la cometa apenas se mantendría cerca del suelo o tendería a caer si no hay ráfagas o si el ángulo de ataque no se optimiza.[3][4]
 
-Si en agosto el viento sube a, por ejemplo, 15–20 km/h (4,2–5,6 m/s), la sustentación, que crece con $\(V^2\)$, se multiplica por un factor entre $\((4{,}2/2{,}2)^2 \approx 3{,}6\)$ y $\((5{,}6/2{,}2)^2 \approx 6{,}5\)$. Así, $\(L\)$ podría pasar a estar claramente por encima de $\(W\)$, permitiendo alturas de vuelo mucho mayores.[9][3]
+Si en agosto el viento sube a, por ejemplo, $15–20 km/h$, $\(4,2–5,6 m/s)\$, la sustentación, que crece con $\(V^2\)$, se multiplica por un factor entre $\((4{,}2/2{,}2)^2 \approx 3{,}6\)$ y $\((5{,}6/2{,}2)^2 \approx 6{,}5\)$. Así, $\(L\)$ podría pasar a estar claramente por encima de $\(W\)$, permitiendo alturas de vuelo mucho mayores.[9][3]
 
 ## Ángulo de la cuerda y equilibrio geométrico
 
