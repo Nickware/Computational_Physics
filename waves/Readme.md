@@ -113,7 +113,7 @@ Para hacerlo más cercano a una cometa específica en Bogotá, podrías:
 - Medir con un anemómetro simple la velocidad del viento en agosto en tu sitio de vuelo.  
 - Ajustar $\(C_L\)$ y $\(C_D\)$ según la forma (rombo, delta, cometas tipo foil), usando rangos de literatura.[7][3]
 
-Si se desea, se puede refinar el modelo con un diagrama de fuerzas completo y resolver explícitamente el ángulo de equilibrio y la tensión para un caso que te interese (por ejemplo, Delta de 1 m de envergadura volando en Ciudad Bolívar con vientos fuertes de agosto).
+Se puede refinar el modelo con un diagrama de fuerzas completo y resolver explícitamente el ángulo de equilibrio y la tensión para un caso que te interese (por ejemplo, Delta de 1 m de envergadura volando en Ciudad Bolívar con vientos fuertes de agosto).
 
 [1](https://ogabogota.unal.edu.co/vientos/)
 [2](https://repositorio.uniandes.edu.co/bitstreams/16889422-24b9-4034-833d-2a68ec10f20c/download)
