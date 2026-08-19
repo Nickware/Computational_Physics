@@ -52,3 +52,7 @@ $t_{1/2} = \frac{\ln(2)}{\lambda}$
 ## Riesgos
 
 La radiación ionizante ($\alpha, \beta, \gamma$) puede dañar tejidos y ADN, provocando mutaciones o enfermedades como el cáncer. Su manipulación requiere blindajes adecuados (plomo para $\gamma$, plástico para $\beta$) y estrictos protocolos de seguridad.
+
+## Implementación númerica
+
+Para ver una implementación clasica del decaimiento radioactivo, ir a este recurso: [Simulación de Desintegración Radioactiva (True BASIC)](decay.md)
