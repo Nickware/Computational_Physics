@@ -1,8 +1,58 @@
 # Física de las cometas y su vuelo en Bogotá durante agosto
 
+## Mapa rápido
+
+| Archivo | Función | Salida principal |
+| :-- | :-- | :-- |
+| [`modelo_cometa_catenaria.py`](modelo_cometa_catenaria.py) | Resuelve el equilibrio directo de una cometa y la forma del hilo | `forma_hilo_cometa.png` |
+| [`perfil_viento_cometa.py`](perfil_viento_cometa.py) | Simula mediciones, invierte el modelo y ajusta un perfil de viento | `perfil_viento_cometa.png` |
+| [`README_perfil_viento.md`](README_perfil_viento.md) | Documenta el modelo inverso y su interpretación | Documentación |
+
+El flujo recomendado es ejecutar primero el modelo directo y después el
+modelo inverso. El segundo reutiliza las funciones del primero.
+
+## Ejecución de los modelos
+
+Los ejemplos ejecutables están en Python y requieren `numpy` y `matplotlib`:
+
+```bash
+cd waves
+python3 -m pip install numpy matplotlib
+python3 modelo_cometa_catenaria.py
+python3 perfil_viento_cometa.py
+```
+
+Desde la raíz del repositorio también pueden ejecutarse así:
+
+```bash
+python3 waves/modelo_cometa_catenaria.py
+python3 waves/perfil_viento_cometa.py
+```
+
+El primer script genera `forma_hilo_cometa.png`. El segundo genera
+`perfil_viento_cometa.png` a partir de un experimento sintético. Ninguno de
+los dos sustituye mediciones de campo ni un estudio formal de viabilidad
+eólica.
+
+## Convenciones y unidades
+
+| Símbolo | Significado | Unidad |
+| :-- | :-- | :-- |
+| `rho` | Densidad del aire | kg/m³ |
+| `V` | Velocidad del viento | m/s |
+| `A` | Área proyectada de la cometa | m² |
+| `CL`, `CD` | Coeficientes de sustentación y arrastre | adimensional |
+| `mu` | Masa lineal del hilo | kg/m |
+| `W_cometa` | Peso de la estructura de la cometa | N |
+| `longitud_hilo` | Longitud desplegada del hilo | m |
+
+El modelo incluye el peso del hilo mediante `mu * g * s`. Por eso
+`W_cometa` representa únicamente el peso de la estructura de la cometa y no
+debe incluir otra vez la masa del hilo.
+
 ## 1. ¿Por qué vuelan las cometas?
 
-Una cometa vuela porque el viento, al chocar con su superficie inclinada, genera una fuerza aerodinámica que se descompone en dos componentes: la **sustentación** (perpendicular a la dirección del viento) y el **arrastre** (paralelo a esa dirección). En vuelo estable, esta fuerza aerodinámica se equilibra con el peso de la cometa y del hilo, y con la tensión que ejerce la cuerda sostenida por el volador.
+Una cometa vuela porque el viento, al chocar con su superficie inclinada, genera una fuerza aerodinámica que se descompone en dos componentes: la **sustentación** (perpendicular a la dirección del viento) y el **arrastre** (paralelo a esa dirección). En vuelo estable, esta fuerza aerodinámica se equilibra con el peso de la estructura, el peso distribuido del hilo y la tensión que ejerce la cuerda sostenida por el volador.
 
 En agosto, los vientos alisios del sureste se intensifican sobre gran parte de Colombia —especialmente en el centro y norte del país— alcanzando velocidades típicas de 20–30 km/h. Esa intensidad es suficiente para generar sustentación apreciable en superficies ligeras como las cometas, sin ser tan turbulenta como para desestabilizarlas. De ahí que agosto se conozca tradicionalmente como el mes de las cometas.
 
@@ -86,6 +136,13 @@ Este modelo es más completo que el anterior porque ya no asume que el hilo es u
 - $C_L$ y $C_D$ se toman constantes, cuando en realidad dependen del ángulo de ataque real de la cometa.
 - El viento se asume uniforme con la altura, sin gradiente ni ráfagas.
 - El hilo se trata como perfectamente flexible e inextensible.
+
+## Estado del proyecto
+
+- **Implementado:** equilibrio estático, catenaria con masa lineal, comparación con hilo recto, simulación sintética de vuelos y ajuste de ley de potencia.
+- **Supuesto:** viento estacionario durante cada vuelo, coeficientes aerodinámicos constantes y mediciones de tensión y ángulo sin sesgo sistemático.
+- **No implementado:** arrastre distribuido sobre el hilo, elasticidad, dinámica de la cometa, ráfagas, calibración experimental e intervalos de confianza.
+- **Uso recomendado:** aprendizaje, exploración de sensibilidad y diseño de un experimento preliminar; no dimensionamiento de un parque eólico.
 
 ## Referencias
 

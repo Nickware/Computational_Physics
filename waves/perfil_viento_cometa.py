@@ -82,7 +82,11 @@ def simular_vuelo(longitud_hilo, perfil_viento, rho, CL, CD, A, W_cometa,
     resuelve el equilibrio (que da una nueva altura), y se repite hasta
     que la altura converge.
     """
+    if max_iter <= 0 or tol <= 0:
+        raise ValueError("max_iter y tol deben ser positivos.")
+
     z = longitud_hilo * 0.7  # semilla inicial razonable
+    convergio = False
     for _ in range(max_iter):
         V_local = perfil_viento(z)
         L, D = fuerzas_aerodinamicas(rho, V_local, CL, CD, A)
@@ -90,10 +94,23 @@ def simular_vuelo(longitud_hilo, perfil_viento, rho, CL, CD, A, W_cometa,
         z_nuevo = res["altura"]
         if abs(z_nuevo - z) < tol:
             z = z_nuevo
+            convergio = True
             break
         z = z_nuevo
-    res["V_local_verdadero"] = V_local
-    res["altura_verdadera"] = z
+
+    if not convergio:
+        raise RuntimeError(
+            f"El equilibrio no convergió en {max_iter} iteraciones "
+            f"para {longitud_hilo:.1f} m de hilo."
+        )
+
+    # Recalcular con la altura convergida para que la velocidad de referencia
+    # y la altura almacenadas pertenezcan al mismo estado del vuelo.
+    V_local = perfil_viento(z)
+    L, D = fuerzas_aerodinamicas(rho, V_local, CL, CD, A)
+    res = resolver_equilibrio(L, D, W_cometa, mu, g, longitud_hilo)
+    res["V_local_verdadero"] = perfil_viento(res["altura"])
+    res["altura_verdadera"] = res["altura"]
     return res
 
 
@@ -136,6 +153,11 @@ def invertir_medicion(T0, theta0_deg, longitud_hilo, rho, CL, CD, A,
         (desde el arrastre y desde la sustentación), más su discrepancia
         relativa como diagnóstico de calibración de CL/CD.
     """
+    if T0 <= 0 or not 0 <= theta0_deg < 90:
+        raise ValueError("T0 debe ser positiva y theta0 debe estar entre 0 y 90 grados.")
+    if longitud_hilo <= 0 or rho <= 0 or CL <= 0 or CD <= 0 or A <= 0 or mu <= 0:
+        raise ValueError("Los parámetros geométricos y aerodinámicos deben ser positivos.")
+
     theta0 = np.radians(theta0_deg)
     H = T0 * np.cos(theta0)
     V0 = T0 * np.sin(theta0)
@@ -183,8 +205,16 @@ def ajustar_perfil_potencia(alturas, velocidades, z_ref=10.0):
     Ajusta V(z) = V_ref*(z/z_ref)^alpha por regresión lineal en log-log.
     Devuelve (V_ref, alpha).
     """
-    z = np.asarray(alturas)
-    V = np.asarray(velocidades)
+    z = np.asarray(alturas, dtype=float)
+    V = np.asarray(velocidades, dtype=float)
+    if z.shape != V.shape or z.size < 2:
+        raise ValueError("alturas y velocidades deben tener la misma forma y al menos dos datos.")
+    if z_ref <= 0 or not np.all(np.isfinite(z)) or not np.all(np.isfinite(V)):
+        raise ValueError("Los datos y z_ref deben ser finitos.")
+    if np.any(z <= 0) or np.any(V <= 0):
+        raise ValueError("Las alturas y velocidades deben ser positivas para el ajuste logarítmico.")
+    if np.unique(z).size < 2:
+        raise ValueError("El ajuste necesita al menos dos alturas diferentes.")
     log_z = np.log(z / z_ref)
     log_V = np.log(V)
     alpha, log_V_ref = np.polyfit(log_z, log_V, 1)

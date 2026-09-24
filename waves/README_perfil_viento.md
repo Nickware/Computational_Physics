@@ -9,6 +9,39 @@ ciudad.
 
 El código de esta extensión está en `perfil_viento_cometa.py`.
 
+## Ejecución
+
+Desde esta carpeta, instala las dependencias y ejecuta la demostración:
+
+```bash
+python3 -m pip install numpy matplotlib
+python3 perfil_viento_cometa.py
+```
+
+El script imprime una tabla con la tensión, el ángulo, la altura estimada,
+la velocidad reconstruida y la discrepancia entre las dos estimaciones
+aerodinámicas. También guarda `perfil_viento_cometa.png`.
+
+## Parámetros de la demostración
+
+La ejecución incluida usa un experimento completamente sintético:
+
+| Parámetro | Valor |
+| :-- | --: |
+| Perfil de referencia `V_ref` | 4,5 m/s a 10 m |
+| Exponente `alpha` | 0,25 |
+| Longitudes de hilo | 30, 50, 70, 90, 110, 130 y 150 m |
+| Ruido relativo | 3 % |
+| Densidad del aire `rho` | 0,89 kg/m³ |
+| `CL`, `CD` | 1,0 y 0,2 |
+| Área `A` | 0,7 m² |
+| Masa de la cometa | 0,20 kg |
+| Masa lineal del hilo `mu` | 0,0005 kg/m |
+
+La semilla aleatoria está fijada en `42`, por lo que el ruido de la
+demostración es reproducible mientras se mantengan las mismas versiones de
+Python y de las bibliotecas.
+
 ## 1. La propuesta
 
 Un volador en tierra puede medir, con instrumentos simples, dos cosas en
@@ -61,6 +94,12 @@ más útil de qué tan confiable es la calibración de $C_L$/$C_D$ para esa
 cometa — si la discrepancia es grande, no vale la pena confiar en el
 valor de $V$ estimado, sin importar cuántos vuelos se hagan.
 
+En el script, `V_estimado` es actualmente la media de ambas velocidades.
+Por tanto, una discrepancia alta debe interpretarse como una alerta de
+calidad y no como una medición confiable. Una aplicación experimental
+debería establecer un umbral de rechazo o propagar la incertidumbre de cada
+estimación.
+
 ## 4. ¿Qué hace el script?
 
 `perfil_viento_cometa.py` implementa el flujo completo, con datos
@@ -71,8 +110,10 @@ el método antes de usarlo con datos reales:
    $V(z)=V_{ref}(z/10)^\alpha$, típico de capa límite urbana.
 2. **Simula vuelos autoconsistentes**: para cada longitud de hilo, resuelve
    iterativamente el equilibrio porque el viento que "ve" la cometa
-   depende de su altura, y la altura depende del viento — hasta que
-   converge. Esto genera las lecturas T0, θ0 que un volador real
+  depende de su altura, y la altura depende del viento — hasta que
+  converge. Si el equilibrio no converge dentro del máximo de iteraciones,
+  el script detiene la simulación en lugar de devolver un resultado dudoso.
+  Esto genera las lecturas T0, θ0 que un volador real
    registraría, con ruido de instrumento opcional.
 3. **Invierte** esas lecturas, vuelo por vuelo, para recuperar altura y
    velocidad, sin usar el perfil verdadero — solo la física de
@@ -85,6 +126,11 @@ instrumento del 3%), el perfil verdadero era $V=4{,}5\,(z/10)^{0{,}25}$ y
 el recuperado fue $V\approx4{,}8\,(z/10)^{0{,}22}$ — razonablemente
 cercano, con discrepancias arrastre/sustentación del orden de 3–12% por
 vuelo, coherentes con el nivel de ruido introducido.
+
+Estos valores son una referencia de la demostración, no una garantía de
+precisión para datos reales. Al reemplazar las mediciones sintéticas por
+datos de campo, deben conservarse las lecturas `T0`, `theta0`, la longitud
+del hilo y la configuración de la cometa para poder reproducir el análisis.
 
 ## 5. Conexión con la evaluación de un parque eólico
 
@@ -117,6 +163,24 @@ eólico en altura antes de invertir en instrumentación permanente.
   probablemente subestima la variabilidad real del viento a lo largo del
   año.
 - Se sigue despreciando el arrastre aerodinámico sobre el hilo mismo.
+- El solver valida rangos físicos básicos y rechaza mediciones no válidas,
+  pero todavía no propaga incertidumbres ni estima intervalos de confianza.
+
+## Qué datos serían necesarios para un experimento real
+
+Para sustituir la demostración sintética se necesitarían, como mínimo:
+
+- tensión `T0` medida con un sensor calibrado;
+- ángulo `theta0` respecto al suelo y su incertidumbre;
+- longitud de hilo desplegada;
+- masa lineal del hilo y masa de la cometa;
+- área proyectada y geometría de la cometa;
+- valores calibrados de `CL` y `CD`;
+- densidad del aire, fecha, ubicación y condiciones meteorológicas;
+- una medición independiente de viento para validar el resultado.
+
+Sin esta información, el resultado solo debe considerarse una simulación
+educativa del procedimiento.
 
 ## 7. Perspectivas para un modelo mejorado
 

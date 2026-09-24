@@ -1,79 +1,95 @@
-# Modelo de Decaimiento de Recursos Hídricos en el Páramo de Santurbán (Catatumbo, Colombia): Incorporación de Variables Socioeconómicas y Políticas  
+# Disponibilidad hídrica en Santurbán
 
-El Páramo de Santurbán es un ecosistema crítico para la provisión de agua en Colombia, amenazado por la **minería de oro** (Proyecto Soto Norte). Aquí se adapta el modelo exponencial de decaimiento para incluir:  
-1. Extracción minera (presión directa).  
-2. Variables socioeconómicas (pobreza, dependencia de la minería).  
-3. Políticas públicas (regulación ambiental, conflictos territoriales).  
+Este proyecto explora, con un modelo exponencial sencillo, cómo distintas presiones podrían asociarse con una disminución de la disponibilidad hídrica en el páramo de Santurbán, Colombia. Su objetivo es didáctico: practicar la construcción de un modelo, trabajar con arreglos de `numpy` y visualizar resultados con `matplotlib`.
 
----
+El programa no utiliza una base de datos externa. Los valores incluidos en [`resources_santurban.py`](resources_santurban.py) son hipotéticos y no deben interpretarse como mediciones de Santurbán ni como un pronóstico ambiental.
 
-## 1. Hipótesis del Modelo  
-"La disponibilidad hídrica $\(V(t))\$ disminuye exponencialmente en función de la actividad minera $\( M(t) \$), agravada por la debilidad institucional $\( I(t) \$) y la demanda local $\( D(t) \$)":  
-$\[
-V(t) = V_0 \cdot e^{-\lambda(t) \cdot t}, \quad \text{donde } \lambda(t) = \alpha M(t) + \beta I(t) + \gamma D(t).
-\$]
-- $\( \alpha, \beta, \gamma \$): Pesos estimados empíricamente.  
-- $\( M(t) \$): Hectáreas concesionadas a minería (datos de la ANM).  
-- $\( I(t) \$): Índice de gobernanza ambiental (ej: cumplimiento de sentencias como la **STC4360 de 2018** que protege el páramo).  
-- $\( D(t) \$) : Crecimiento poblacional + demanda agrícola (ej: datos del DANE).  
+## Modelo implementado
 
----
+El script define tres series de entrada para diez instantes:
 
-## 2. Evidencia que Ajusta al Modelo  
-### A. Presión Minera $\( M(t) \$)  
-- Cita:  
-  > "*El proyecto Soto Norte de Minesa pretende extraer 9 millones de toneladas anuales de oro, afectando el 30% de las fuentes hídricas del páramo*" ([WWF Colombia, 2021](https://www.wwf.org.co)).  
-- Dato: Entre 2010 y 2020, la concesión minera en Santurbán creció un **400%** ([ANM, 2020](https://www.anm.gov.co)).  
+- `M`: hectáreas mineras concesionadas, con valores hipotéticos.
+- `I`: índice de gobernanza entre 0 y 1.
+- `D`: crecimiento porcentual de la demanda.
 
-### B. Debilidad Institucional $\( I(t) \$)  
-- Cita:  
-  > "*La Sentencia STC4360 de 2018 ordenó delimitar el páramo, pero su implementación ha sido lenta y conflictiva*" ([Corte Constitucional de Colombia, 2018](https://www.corteconstitucional.gov.co)).  
-- Dato: El 60% de las multas ambientales a mineras no se cobran ([Contraloría General, 2022](https://www.contraloria.gov.co)).  
+También define los parámetros:
 
-### C. Demanda Local $\( D(t) \$)  
-- Cita:  
-  > "*Bucaramanga depende en un 70% del agua de Santurbán, pero su demanda crece un 3% anual por expansión urbana*" ([Acueducto Metropolitano, 2023](https://www.acueducto.com.co)).  
-- Dato: La agricultura consume el 50% del agua debido a técnicas ineficientes ([IDEAM, 2021](https://www.ideam.gov.co)).  
+| Parámetro | Valor | Interpretación en el script |
+| :-- | --: | :-- |
+| `alpha` | `0.05` | Peso de `M / 100` |
+| `beta` | `0.03` | Penalización cuando `I < 0.5` |
+| `gamma` | `0.02` | Peso de `D` |
+| `V0` | `100` | Disponibilidad hídrica inicial, expresada como porcentaje |
 
----
+La tasa calculada por el código es:
 
-## 3. Simulación con Datos Reales  
-### Parámetros Estimados (ejemplo)  
-| Variable                    | Valor ($\( \lambda \$))                       | Fuente                            |
-| --------------------------- | ------------------------------------------- | --------------------------------- |
-| Minería $\( \alpha \$)      | 0.05 por cada 100 ha concesionadas          | [ANM, 2023]                       |
-| Instituciones $\( \beta \$) | 0.03 (si $\( I(t) < 0.5 \$))                  | Índice de Transparencia Ambiental |
-| Demanda $\( \gamma \$)      | 0.02 por cada 1% de crecimiento poblacional | [DANE, 2022]                      |
+$$
+\lambda_t = \alpha\frac{M_t}{100} + \beta\,\mathbf{1}_{I_t < 0.5} + \gamma D_t
+$$
 
-Resultado:  
+donde $\mathbf{1}_{I_t < 0.5}$ vale 1 cuando la gobernanza está por debajo de 0.5 y 0 en caso contrario. La disponibilidad se calcula como:
 
-Ejecutar vía terminal
+$$
+V_t = V_0 e^{-\lambda_t t}
+$$
+
+Es importante notar que esta implementación usa la tasa correspondiente a cada instante directamente en la exponencial. No calcula una integral acumulada de una tasa variable. Para un modelo temporal más riguroso, sería necesario definir con claridad la unidad de cada variable y acumular el efecto de $\lambda(t)$ entre pasos.
+
+## Ejecución
+
+Desde esta carpeta, ejecuta:
+
 ```bash
-python loss_argentina.py
+python3 resources_santurban.py
 ```
 
-- La disponibilidad de agua cae a ~40% en 10 años si persisten las tendencias.  
+También puede ejecutarse desde la raíz del repositorio:
 
----
+```bash
+python3 "decay/water resources/resources_santurban.py"
+```
 
-## 4. Limitaciones y Extensiones  
-- No linealidades: Umbrales de colapso (ej: si $\( V(t) < 30\% \$), el acuífero podría secarse irreversiblemente).  
-- Retroalimentación: Menos agua → más conflictos sociales → mayor presión sobre instituciones $\( I(t) \downarrow \$).  
-- Variables omitidas: Cambio climático (sequías más frecuentes).  
+Dependencias:
 
----
+```bash
+python3 -m pip install numpy matplotlib
+```
 
-## 5. Recomendaciones de Política Pública  
-1. Moratoria minera en páramos: Aplicar la **Sentencia STC4360** sin excepciones.  
-2. Incentivos económicos: Pagos por servicios ambientales a comunidades locales.  
-3. Tecnificación agrícola: Reducir $\( \gamma \$) con riego eficiente.  
+El programa muestra una gráfica con:
 
----
+- La disponibilidad hídrica estimada como una línea azul.
+- Un área sombreada bajo la curva.
+- El tiempo en años y la disponibilidad porcentual en los ejes.
 
-## Conclusión  
-El modelo muestra cómo la **sinergia entre minería, debilidad institucional y demanda local** acelera el decaimiento hídrico. Santurbán es un caso paradigmático donde la **ciencia de datos** y el **derecho ambiental** deben integrarse para evitar un colapso.  
+## Cómo interpretar el resultado
 
-#### Fuentes clave:  
-- [Corte Constitucional de Colombia (2018)](https://www.corteconstitucional.gov.co).  
-- [WWF Colombia (2021)](https://www.wwf.org.co).  
-- [IDEAM (2021)](https://www.ideam.gov.co).
+La gráfica permite observar cómo el valor `V_t` disminuye cuando aumentan las presiones representadas por `M`, `D` o por el indicador de baja gobernanza. El resultado ilustra la sensibilidad del modelo a sus parámetros; no demuestra causalidad ni cuantifica el comportamiento real del ecosistema.
+
+Para usar datos de campo sería necesario sustituir los arreglos del script por mediciones documentadas, especificar sus unidades, calibrar `alpha`, `beta` y `gamma`, y comparar el ajuste con observaciones independientes.
+
+## Limitaciones
+
+- Los datos son hipotéticos y no están conectados a una fuente de mediciones.
+- El modelo resume la minería, la gobernanza y la demanda en una sola tasa de decaimiento.
+- No incluye recarga natural, precipitación, sequías, contaminación, caudal, calidad del agua ni umbrales de colapso.
+- No representa retroalimentaciones sociales o ambientales.
+- La fórmula implementada no es una integración temporal de una tasa variable.
+- El resultado depende de parámetros elegidos manualmente y no incluye incertidumbre.
+
+## Posibles extensiones
+
+1. Incorporar datos observados de caudal, precipitación, calidad del agua y extracción.
+2. Ajustar los parámetros mediante regresión y reportar intervalos de incertidumbre.
+3. Reemplazar el modelo exponencial simple por una ecuación diferencial con recarga y consumo:
+   $$\frac{dV}{dt} = -\lambda(t)V + R(t) - C(t)$$
+4. Comparar escenarios de regulación, demanda y actividad minera.
+5. Validar los resultados con un modelo hidrológico especializado, sin presentar este script como sustituto de un estudio ambiental.
+
+## Contexto y referencias
+
+Santurbán es un ecosistema relevante para el abastecimiento de agua y objeto de debates sobre minería, delimitación y protección ambiental. Las siguientes referencias sirven como contexto general y no constituyen los datos utilizados por el script:
+
+- [Corte Constitucional de Colombia](https://www.corteconstitucional.gov.co)
+- [Agencia Nacional de Minería](https://www.anm.gov.co)
+- [IDEAM](https://www.ideam.gov.co)
+- [WWF Colombia](https://www.wwf.org.co)

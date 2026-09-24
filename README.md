@@ -28,16 +28,18 @@ Este repositorio reúne ejercicios y proyectos de Física Computacional. La ruta
 
 #### Aplicaciones del decaimiento exponencial
 
-El [README de `decay`](decay/Readme.md) es el punto de entrada de esta familia de proyectos. Todos parten de la idea de que una magnitud cambia proporcionalmente a su estado actual, pero cada carpeta cambia la interpretación física o aplicada de esa magnitud.
+El [README de `decay`](decay/Readme.md) es el punto de entrada de esta familia de proyectos. Todos parten de la idea de que una magnitud cambia proporcionalmente a su estado actual, pero cada carpeta cambia la interpretación física o aplicada de esa magnitud. Son modelos educativos independientes; no forman una sola aplicación ni se importan entre sí.
 
-| Proyecto | Problema estudiado | Punto de entrada |
-| :-- | :-- | :-- |
-| `radioactive` | Desintegración nuclear y vida media | [`Readme.md`](decay/radioactive/Readme.md) |
-| `credit_risk` | Supervivencia de un crédito y riesgo de default | [`Readme.md`](decay/credit_risk/Readme.md) |
-| `loss_value` | Pérdida de valor de una inversión en Argentina | [`Readme.md`](decay/loss_value/Readme.md) |
-| `water resources` | Disponibilidad hídrica en el páramo de Santurbán | [`Readme.md`](decay/water%20resources/Readme.md) |
-| `mining` | Impacto de la actividad minera sobre recursos hídricos | [`Readme.md`](decay/mining/Readme.md) |
-| `plastic_decomposition` | Persistencia y descomposición de plásticos en Bogotá | [`Readme.md`](decay/plastic_decomposition/Readme.md) |
+| Proyecto | Problema estudiado | Implementación | Documentación |
+| :-- | :-- | :-- | :-- |
+| `radioactive` | Desintegración nuclear y vida media | [`radiactive.py`](decay/radioactive/radiactive.py), True BASIC | [`Readme.md`](decay/radioactive/Readme.md) |
+| `credit_risk` | Supervivencia de un crédito y riesgo de default | [`risk.py`](decay/credit_risk/risk.py) | [`Readme.md`](decay/credit_risk/Readme.md) |
+| `loss_value` | Pérdida de valor de una inversión en Argentina | [`loss_argentina.py`](decay/loss_value/loss_argentina.py) | [`Readme.md`](decay/loss_value/Readme.md) |
+| `water resources` | Disponibilidad hídrica en el páramo de Santurbán | [`resources_santurban.py`](decay/water%20resources/resources_santurban.py) | [`Readme.md`](decay/water%20resources/Readme.md) |
+| `mining` | Ajuste de datos hipotéticos sobre recursos hídricos afectados por minería | [`mining.py`](decay/mining/mining.py) | [`Readme.md`](decay/mining/Readme.md) |
+| `plastic_decomposition` | Persistencia y descomposición de plásticos en Bogotá | [`plastic_decomposition.py`](decay/plastic_decomposition/plastic_decomposition.py) | [`Readme.md`](decay/plastic_decomposition/Readme.md) |
+
+Los scripts de Python requieren `numpy` y `matplotlib`; `mining.py` también requiere `scipy`. Sus datos son hipotéticos o simplificados y los gráficos tienen finalidad didáctica, no predictiva.
 
 #### Viento y cometas
 

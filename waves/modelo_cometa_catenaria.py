@@ -47,6 +47,8 @@ G = 9.81  # m/s^2
 
 def fuerzas_aerodinamicas(rho, V, CL, CD, A):
     """Sustentación (L) y arrastre (D) en Newtons."""
+    if rho <= 0 or V < 0 or CL <= 0 or CD <= 0 or A <= 0:
+        raise ValueError("rho, CL, CD y A deben ser positivos; V no puede ser negativa.")
     q = 0.5 * rho * V**2
     L = q * CL * A
     D = q * CD * A
@@ -59,6 +61,9 @@ def resolver_equilibrio(L, D, W_cometa, mu, g, longitud_hilo):
     hilo (mu) y la longitud de hilo desplegada, devuelve un diccionario con
     las tensiones, ángulos, altura y alcance horizontal.
     """
+    if L < 0 or D <= 0 or W_cometa < 0 or mu <= 0 or g <= 0 or longitud_hilo <= 0:
+        raise ValueError("Las fuerzas, la masa lineal, g y la longitud deben ser válidas.")
+
     H = D
     V_top = L - W_cometa
     if V_top <= 0:
