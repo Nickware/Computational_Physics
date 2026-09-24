@@ -1,68 +1,125 @@
-# Computational Physics Course Description
+# Física Computacional
 
-*Based on the methodology of Nicholas J. Giordano*
+*Basado en la metodología de Nicholas J. Giordano*
 
-## Course Overview
+## Mapa del repositorio
 
-This course introduces students to **computational techniques and numerical methods** for solving diverse physics problems that go beyond analytical approaches. The curriculum uses the pedagogical framework of Nicholas J. Giordano, focusing on how computation can expand and deepen physical understanding through simulation and analysis[^1].
+Este repositorio reúne ejercicios y proyectos de Física Computacional. La ruta recomendada va desde la programación básica, pasa por los métodos numéricos y la mecánica clásica, y termina en modelos aplicados de decaimiento y viento.
 
-## Learning Objectives
+### Ruta de aprendizaje
 
-Upon completion, students will:
+1. **Primeros programas:** comienza en [`firts_course/module_one`](firts_course/module_one), con un programa introductorio en C++.
+2. **Métodos numéricos:** continúa con [`module_two/example_1`](firts_course/module_two/example_1) para calcular velocidades y aceleraciones mediante diferencias finitas, y con [`module_two/example_2`](firts_course/module_two/example_2) para procesar datos y generar gráficas con Gnuplot.
+3. **Mecánica y sistemas dinámicos:** estudia los modelos de bicicleta con y sin resistencia del aire en [`module_three/noairvsair`](firts_course/module_three/noairvsair) y el oscilador de Duffing en [`module_three/nonlinear`](firts_course/module_three/nonlinear).
+4. **Modelos de decaimiento:** revisa [`decay`](decay/Readme.md), que reúne una misma estructura exponencial aplicada a fenómenos físicos, ambientales y económicos.
+5. **Aerodinámica y viento:** termina con [`waves`](waves/Readme.md), donde se modelan las fuerzas sobre una cometa, la catenaria del hilo y la reconstrucción de un perfil vertical de viento.
 
-- Understand the role of computation in modern physics.
-- Develop the ability to translate physical problems into algorithms.
-- Apply standard numerical methods (e.g., root finding, integration, differentiation, differential equations, Monte Carlo methods) to solve physical systems.
-- Visualize and interpret computational results.
-- Gain proficiency in scientific programming and computational thinking[^3].
+### Índice de proyectos
 
+#### Curso introductorio
 
-## Course Content
+| Proyecto | Qué contiene | Tecnologías |
+| :-- | :-- | :-- |
+| [`module_one`](firts_course/module_one) | Programa inicial y estructura básica de compilación | C++, Make |
+| [`example_1`](firts_course/module_two/example_1) | Derivadas numéricas de posición para obtener velocidad y aceleración | Python, C++ |
+| [`example_2`](firts_course/module_two/example_2) | Procesamiento de datos experimentales y generación de gráficas | C++, Gnuplot |
+| [`noairvsair`](firts_course/module_three/noairvsair) | Comparación del movimiento de una bicicleta con y sin resistencia del aire | C++ |
+| [`nonlinear`](firts_course/module_three/nonlinear) | Simulación del oscilador no lineal de Duffing | C++ |
 
-| Module | Topics and Skills |
+#### Aplicaciones del decaimiento exponencial
+
+El [README de `decay`](decay/Readme.md) es el punto de entrada de esta familia de proyectos. Todos parten de la idea de que una magnitud cambia proporcionalmente a su estado actual, pero cada carpeta cambia la interpretación física o aplicada de esa magnitud.
+
+| Proyecto | Problema estudiado | Punto de entrada |
+| :-- | :-- | :-- |
+| `radioactive` | Desintegración nuclear y vida media | [`Readme.md`](decay/radioactive/Readme.md) |
+| `credit_risk` | Supervivencia de un crédito y riesgo de default | [`Readme.md`](decay/credit_risk/Readme.md) |
+| `loss_value` | Pérdida de valor de una inversión en Argentina | [`Readme.md`](decay/loss_value/Readme.md) |
+| `water resources` | Disponibilidad hídrica en el páramo de Santurbán | [`Readme.md`](decay/water%20resources/Readme.md) |
+| `mining` | Impacto de la actividad minera sobre recursos hídricos | [`Readme.md`](decay/mining/Readme.md) |
+| `plastic_decomposition` | Persistencia y descomposición de plásticos en Bogotá | [`Readme.md`](decay/plastic_decomposition/Readme.md) |
+
+#### Viento y cometas
+
+| Proyecto | Qué contiene |
 | :-- | :-- |
-| **Introduction \& Programming** | Basics of computational thinking in physics. Introduction to programming languages (typically Python or MATLAB). Algorithms, data visualization. |
-| **Numerical Methods** | Root-finding (bisection, Newton-Raphson), interpolation (polynomials, Lagrange), least squares and data fitting, numerical integration (trapezoidal, Simpson’s rule), ordinary differential equations (Euler, Runge-Kutta). |
-| **Classical Mechanics** | Applications: projectile motion, oscillatory systems, planetary motion, chaos, and dynamical systems. Simulation of Newtonian and nonlinear systems[^4][^5]. |
-| **Random Processes** | Monte Carlo simulations, random walks, diffusion, nuclear decay, statistical mechanics foundations. |
-| **Electromagnetism \& Quantum** | Simulation of electrostatics, fields, basic quantum systems (time-dependent and independent Schrödinger equations). |
-| **Advanced Topics** | Fourier transforms, partial differential equations, complex systems (e.g., Ising model, cellular automata, phase transitions)[^1]. |
+| [`modelo_cometa_catenaria.py`](waves/modelo_cometa_catenaria.py) | Equilibrio aerodinámico de la cometa y forma de la cuerda como catenaria |
+| [`perfil_viento_cometa.py`](waves/perfil_viento_cometa.py) | Estimación de velocidad del viento y ajuste de un perfil vertical |
+| [`README_perfil_viento.md`](waves/README_perfil_viento.md) | Explicación de la extensión de la cometa como anemómetro |
 
-## Teaching Methods
+### Cómo leer la relación entre los proyectos
 
-- Interactive lectures on physical and numerical concepts.
-- Hands-on programming labs and coding assignments.
-- Guided projects replicating textbook simulations and exploring new scenarios.
-- Visualization of results to develop intuition for numerical solutions[^3].
+Los proyectos no forman una única aplicación ni dependen unos de otros mediante imports. La relación es progresiva y conceptual:
 
+- `module_one` introduce la programación.
+- `module_two` convierte datos en magnitudes físicas mediante derivación numérica.
+- `module_three` aplica esas herramientas a sistemas mecánicos y no lineales.
+- `decay` muestra cómo una misma ecuación puede transferirse entre dominios.
+- `waves` integra equilibrio de fuerzas, geometría, simulación iterativa y ajuste de datos.
 
-## Evaluation
+El repositorio mezcla C++, Python, True BASIC y Gnuplot porque conserva ejercicios con distintos objetivos didácticos. Los README de cada carpeta explican los requisitos y la ejecución particular de cada proyecto.
 
-- Problem sets and coding assignments
-- Mid-term exam on theory and implementation
-- Project: formulation, coding, and reporting of a computational solution to a relevant physical problem
+## Descripción del curso
 
+Este curso introduce **técnicas computacionales y métodos numéricos** para resolver diversos problemas de física que van más allá de los enfoques analíticos. El programa utiliza el marco pedagógico de Nicholas J. Giordano y se enfoca en cómo la computación puede ampliar y profundizar la comprensión de los fenómenos físicos mediante la simulación y el análisis[^1].
 
-## Recommended Text
+## Objetivos de aprendizaje
 
-- *Computational Physics* (2nd Ed.), Nicholas J. Giordano \& Hisao Nakanishi[^1]
+Al finalizar el curso, los estudiantes podrán:
 
-
-## Typical Applications
-
-- Classical and quantum simulations are not solvable analytically
-- Visualization of complex system behavior
-- Statistical and stochastic physics
-- Project-based investigations in modern research topics
+- Comprender el papel de la computación en la física moderna.
+- Traducir problemas físicos a algoritmos.
+- Aplicar métodos numéricos estándar, como búsqueda de raíces, integración, diferenciación, ecuaciones diferenciales y métodos de Monte Carlo, para resolver sistemas físicos.
+- Visualizar e interpretar resultados computacionales.
+- Desarrollar competencias en programación científica y pensamiento computacional[^3].
 
 
-## Prerequisites
+## Contenidos del curso
 
-- Introductory physics
-- Calculus (single and multivariable)
-- Basic programming (not mandatory, but helpful; the course often includes a rapid introduction to coding fundamentals)[^3]
+| Módulo | Temas y habilidades |
+| :-- | :-- |
+| **Introducción y programación** | Fundamentos del pensamiento computacional aplicado a la física. Introducción a lenguajes de programación, principalmente Python o MATLAB. Algoritmos y visualización de datos. |
+| **Métodos numéricos** | Búsqueda de raíces (bisección y Newton-Raphson), interpolación (polinomios y Lagrange), mínimos cuadrados y ajuste de datos, integración numérica (reglas trapezoidal y de Simpson), y ecuaciones diferenciales ordinarias (Euler y Runge-Kutta). |
+| **Mecánica clásica** | Aplicaciones al movimiento de proyectiles, sistemas oscilatorios, movimiento planetario, caos y sistemas dinámicos. Simulación de sistemas newtonianos y no lineales[^4][^5]. |
+| **Procesos aleatorios** | Simulaciones de Monte Carlo, caminatas aleatorias, difusión, decaimiento nuclear y fundamentos de mecánica estadística. |
+| **Electromagnetismo y física cuántica** | Simulación de electrostática, campos y sistemas cuánticos básicos, incluidas las ecuaciones de Schrödinger dependientes e independientes del tiempo. |
+| **Temas avanzados** | Transformadas de Fourier, ecuaciones diferenciales parciales y sistemas complejos, como el modelo de Ising, autómatas celulares y transiciones de fase[^1]. |
 
-This course leverages computation to make physical concepts tangible and equips students for advanced careers or research in physics and related disciplines[^1][^3].
+## Metodología de enseñanza
+
+- Clases interactivas sobre conceptos físicos y numéricos.
+- Laboratorios prácticos de programación y ejercicios de código.
+- Proyectos guiados que reproducen simulaciones del libro y exploran nuevos escenarios.
+- Visualización de resultados para desarrollar intuición sobre las soluciones numéricas[^3].
+
+
+## Evaluación
+
+- Series de problemas y ejercicios de programación.
+- Examen parcial sobre teoría e implementación.
+- Proyecto de formulación, programación y documentación de una solución computacional para un problema físico relevante.
+
+
+## Texto recomendado
+
+- *Computational Physics* (2.ª edición), Nicholas J. Giordano y Hisao Nakanishi[^1]
+
+
+## Aplicaciones típicas
+
+- Simulación de sistemas clásicos y cuánticos que no pueden resolverse analíticamente.
+- Visualización del comportamiento de sistemas complejos.
+- Física estadística y estocástica.
+- Investigaciones basadas en proyectos sobre temas de investigación actuales.
+
+
+## Prerrequisitos
+
+- Física introductoria.
+- Cálculo diferencial e integral, de una y varias variables.
+- Programación básica. No es obligatoria, pero resulta útil; el curso puede incluir una introducción rápida a los fundamentos de programación[^3].
+
+Este curso utiliza la computación para hacer tangibles los conceptos físicos y preparar a los estudiantes para estudios avanzados, investigación y carreras profesionales en física y disciplinas relacionadas[^1][^3].
 
 [^1]: https://www.mathworks.com/academia/books/computational-physics-giordano.html
 
